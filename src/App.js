@@ -3,7 +3,10 @@
 function App() {
   return (
     <div className="App">
-      Homepage
+      <Header/>
+      <Nav/>
+      <Main/>
+      <Footer/>
     </div>
   );
 }
