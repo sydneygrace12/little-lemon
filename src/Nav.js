@@ -11,7 +11,7 @@ import logo from './icons_assets/Logo.svg';
 function Nav() {
     return (
         <header className="header">
-            <nav className="flex flex-jc-sb flex-ai-c">
+            <nav className="container flex flex-jc-sb flex-ai-c">
                 <a href="/" className="header__logo">
                     <img src={logo} alt="Little Lemon Logo"/>
                 </a>

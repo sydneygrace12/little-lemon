@@ -10,6 +10,20 @@ body {
     background-color: white;
 }
 
+.container {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    max-width: 69.375rem;
+    margin: 0 auto;
+}
+
+.header .container {
+    padding-top: 2.125rem;
+    padding-right: 1.5rem;
+    padding-bottom: 2.125rem;
+    padding-left: 1.5rem;
+}
+
 .flex {
    display: flex;
 
@@ -77,10 +91,20 @@ button, .button {
     padding: .875rem 2.1875rem;
     background-color: #495E57;
     border: 0;
-    //border radius: 30px;
+    border-radius: 30px;
     cursor: pointer;
     color: #F6D52E;
     font-weight: 700;
+    text-decoration: none;
+    display:inline-block;
+
+    &:hover {
+        opacity: .75;
+    }
+
+    @include breakpoint-up(large){
+        align-items: left;
+    }
 }
 
 //visibility
@@ -97,4 +121,164 @@ button, .button {
     @include breakpoint-up(large){
         display: none;
     }
+}
+
+//hero, may need to make parent hero and children containers
+.hero{
+    background-color: lightgray;
+
+    @include breakpoint-up(large){
+        min-height: 41rem;
+        display: flex;
+        align-items: center;
+        }
+
+    &__img{
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        min-height: 17.5rem;
+
+        @include breakpoint-up(large){
+            flex: 3;
+            order: 2;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &__text {
+        text-align: center;
+
+        h1 {
+            font-weight: 400;
+            font-size: 2.3125rem;
+            line-height: .35;
+            color:#495E57;
+
+            @include breakpoint-up(large){
+                flex: 2;
+                order: 1;
+            }
+
+        }
+
+        h2 {
+            font-weight: 300;
+            font-size: 1.6875rem;
+            line-height: .5;
+            color:#495E57;
+            margin-bottom: 1.5rem;
+        }
+        p {
+           line-height: 1.5;
+           margin-bottom: 2.3125rem;
+        }
+    }
+}
+
+//features
+
+.feature {
+    &__grid {
+        @include breakpoint-up(large){
+            display:flex;
+        }
+    }
+    &__item {
+        padding: .9375rem;
+        margin: 1rem;
+        border:1px solid #495E57;
+        border-radius: 1rem;
+
+        @include breakpoint-up(large){
+            flex: 1;
+    }
+    &__img {
+
+    }
+    &__title{
+        display: inline;
+    }
+    &__description{}
+
+}
+}
+
+//footer
+
+.footer {
+    background-color: #495E57;
+    color: white;
+    padding:2.5rem;
+    text-align: center;
+
+    @include breakpoint-up(large){
+        display: grid;
+        grid-template-columns: repeat(3,1fr) 2fr;
+        grid-template-rows: repeat(2,1fr);
+        grid-template-areas:
+        "logo links1 links2 cta"
+        "social links1 links2" ;
+    }
+
+    a{
+        color: white;
+    }
+
+    &__logo{
+        display: inline-block;
+        margin-bottom: 1.875rem;
+
+        @include breakpoint-up(large){
+            grid-area: logo;
+        }
+    }
+
+    &__social{
+        margin-bottom: 1.875rem;
+
+        @include breakpoint-up(large){
+            grid-area: social;
+        }
+
+        a {
+            display: inline-block;
+        }
+        a:not(:last-child) {
+            margin-right: 1rem;
+        }
+    }
+
+    &__links{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 2.25;
+
+        &.col1{
+            @include breakpoint-up(large){
+                grid-area: links1;
+            }
+        }
+        &.col2{
+            margin-bottom: 1.875rem;
+            @include breakpoint-up(large){
+                grid-area: links2;
+            }
+        }
+    }
+
+    &__cta{
+
+        @include breakpoint-up(large){
+            grid-area: cta;
+        }
+        a.button{
+            margin-bottom: 1.875rem;
+        }
+    }
+
+    &copyright{}
+
 }
